@@ -9,9 +9,16 @@ var Result = 0;
 for (int i = 0; i < Cards; i++)
 {
     Console.WriteLine($"{name} введите пожалуйста номинал Вашей карты:");
-    var Nominal = Console.ReadLine().ToLower();
+    var Nominal = Console.ReadLine().ToLower().Replace(",","");
 
+    while (!"2,3,4,5,6,7,8,9,10,j,q,k,t".Contains(Nominal) || Nominal == "0" || Nominal == "1")  //костыль 
+    {
+        Console.WriteLine("Введён не корретный номинал карты, введите повторно:");
+        Nominal = Console.ReadLine().ToLower().Replace(",","");
+    }
 
+     
+ 
     switch (Nominal)
     {
         case "2":
@@ -54,9 +61,11 @@ for (int i = 0; i < Cards; i++)
             Result += 11;
             break;
         default:
+            
             Console.WriteLine("Такой карты нет в колоде.");
             break;
     }
+
 }
 Console.WriteLine($"сумма ваших карт {Result}");
 
