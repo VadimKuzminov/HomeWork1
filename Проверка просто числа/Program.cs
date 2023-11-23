@@ -1,23 +1,18 @@
-﻿bool prostoe = true;
+﻿bool sostavnoe = true;
 Console.WriteLine("введите число:");
 int n = int.Parse(Console.ReadLine());
-int i = 2;
-while (i <= n - 1)
+int k = 1;
+while (k != n - 1)
 {
-    if (n % i == 0)
+    k++;
+    if (n % k == 0)
     {
-        prostoe = false;
+        sostavnoe = true;
         Console.WriteLine("число составное");
-
-
         break;
     }
-    else
-    {
-        prostoe = true;
-        Console.WriteLine("число простое");
-        break;
-    }
-    i++;
+
+    sostavnoe = false;
 }
-Console.ReadKey();
+Console.WriteLine(sostavnoe);
+Console.WriteLine("Число простое");
